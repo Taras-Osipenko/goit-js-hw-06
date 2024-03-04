@@ -14,8 +14,15 @@ class Storage {
   }
 
   removeItem(itemToRemove) {
-   this.#items.splice(this.#items.indexOf(itemToRemove), 1)
-  }
+
+    const deleteIndex = this.#items.indexOf(itemToRemove);
+
+    if (deleteIndex !== -1) {
+        this.#items.splice(deleteIndex, 1);
+      } else {
+        console.log("Такого товару не існує!");
+      }
+    }
 }
 
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
